@@ -1,0 +1,42 @@
+Setup Kubernetes in Ubuntu 22.04 using Kubeadm
+
+Steps Involved:
+
+Assign Static IP
+Set Hostnames
+Edit /etc/hosts file
+Disable firewall and edit Iptables settings
+Setup Kubernetes Repo
+Installing Kubeadm and Docker, Enable and start the services
+Disable Swap
+Initialize Kubernetes Cluster
+Installing Pod Network using Calico network
+Join Worker Nodes
+
+
+Set Hostnames
+
+After login to all 3 Ubuntu server - kubemaster, kubeworker-1 and kubeworker-2
+
+# hostnamectl  set-hostname "kubemaster"
+
+Then update and upgrade
+# apt update
+# apt upgrade -y
+# reboot
+
+Edit /etc/hosts file to map server IP with hostname
+
+# nano /etc/hosts
+
+192.168.100.7	kmaster.iiml.local kmaster
+192.168.100.8	kworker1.iiml.local kworker1
+192.168.100.9	kworker2.iiml.local kworker2
+
+Disable Swap
+
+# swapoff -a
+# free -h
+
+
+
